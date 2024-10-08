@@ -1,5 +1,10 @@
 import praw
-from client_codes import client_id, client_secret, user_agent
+try:
+    from credentials.client_codes import client_id, client_secret, user_agent
+except ImportError:
+    client_id = None
+    client_secret = None
+    user_agent = None
 
 # Initialize PRAW
 reddit = praw.Reddit(
